@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gym.ui.gui.MainMenuController"
+            prefWidth="900" prefHeight="700">
+
+    <!-- Top menu -->
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+            <Label text="🏋️ Gym Management System" textFill="white">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <HBox spacing="15" VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+                <Button text="Clients" onAction="#showClients" prefWidth="120" style="-fx-font-size: 14;"/>
+                <Button text="Sessions" onAction="#showSessions" prefWidth="120" style="-fx-font-size: 14;"/>
+                <Button text="Reports" onAction="#showReports" prefWidth="120" style="-fx-font-size: 14;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Dynamic content area -->
+    <center>
+        <StackPane fx:id="contentArea">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </StackPane>
+    </center>
+
+</BorderPane>

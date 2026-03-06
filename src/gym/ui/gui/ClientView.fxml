@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gym.ui.gui.ClientController"
+      spacing="10"
+      maxWidth="650.0"
+      VBox.vgrow="ALWAYS">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <Label text="Client Management">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+
+    <Separator/>
+
+    <!-- Client table -->
+    <TableView fx:id="clientTable" VBox.vgrow="ALWAYS" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
+            <TableColumn fx:id="emailColumn" text="Email" prefWidth="200"/>
+            <TableColumn fx:id="phoneColumn" text="Phone" prefWidth="100"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+
+    <Label text="Client Details (ID, Name, Email, Phone):"/>
+
+    <!-- Input fields -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+        </columnConstraints>
+
+        <TextField fx:id="idField" promptText="ID" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <TextField fx:id="phoneField" promptText="Phone" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    </GridPane>
+
+    <!-- Action buttons -->
+    <HBox spacing="10">
+        <Button text="Add" onAction="#handleAddClient" prefWidth="80"/>
+        <Button text="Update" onAction="#handleUpdateClient" prefWidth="80"/>
+        <Button text="Delete" onAction="#handleDeleteClient" prefWidth="80"/>
+        <Button text="Undo" onAction="#handleUndo" prefWidth="80"/>
+        <Button text="Redo" onAction="#handleRedo" prefWidth="80"/>
+    </HBox>
+
+    <Label style="-fx-font-style: italic;"
+           text="Select a row from the table to populate fields for update or delete operations."/>
+
+</VBox>
